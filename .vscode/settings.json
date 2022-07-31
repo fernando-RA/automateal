@@ -5,4 +5,7 @@
         "source.fixAll": true,
         "source.organizeImports": true,
     },
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
 }
