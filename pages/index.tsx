@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import PrimaryLayout from '../components/layouts/primary/PrimaryLayout';
 import Search from '../components/widgets/search/search';
-import automateal_logo from '../public/automateal_logo.jpeg';
 import { NextPageWithLayout } from './page';
 
 const Home: NextPageWithLayout = () => {
@@ -11,7 +10,7 @@ const Home: NextPageWithLayout = () => {
   return (
     <section className="flex flex-col items-center gap-y-5 mt-12 sm:mt-36">
       <Image
-        src={automateal_logo}
+        src="/automateal_logo.jpeg"
         alt="Logo"
         width={240}
         height={240}

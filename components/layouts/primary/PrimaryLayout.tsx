@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import Footer from '../../navigation/footer/Footer';
 import Header from '../../navigation/header/Header';
-
 export interface IPrimaryLayout {
   children: React.ReactNode;
 }
@@ -11,6 +10,7 @@ const PrimaryLayout: React.FC<IPrimaryLayout> = ({ children }) => {
     <>
       <Head>
         <title>Automateal</title>
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="min-h-screen flex flex-col items-center">
         <Header />
