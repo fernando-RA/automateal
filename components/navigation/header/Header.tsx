@@ -1,31 +1,52 @@
+import Image from 'next/image';
 import Link from 'next/link';
+import automateal_logo21 from '../../../public/automateal_logo2.1.jpeg';
 export interface IHeader extends React.ComponentPropsWithoutRef<'header'> {}
 
 const Header: React.FC<IHeader> = ({ className, ...headerProps }) => {
   return (
     <header
       {...headerProps}
-      className={`w-full flex flex-row justify-between ${className}`}
+      className={`w-full flex flex-row align-center justify-between ${className}`}
     >
-      <div className="space-x-5 m-5">
+      <div className="space-x-5 m-5 flex items-center">
+        <Image
+          src={automateal_logo21}
+          alt="Logo"
+          width={120}
+          height={64}
+          priority
+        />
+        <div className="relative -ml-0.5 w-0.5 h-24 bg-gray-300"></div>
         <Link href="/">
-          <a className="hover:underline">About</a>
+          <a className="hover:underline align-text-top hidden sm:inline">
+            Our Story
+          </a>
         </Link>
         <Link href="/">
-          <a className="hover:underline">Images</a>
+          <a className="hover:underline align-text-top hidden sm:inline">
+            Philosophy
+          </a>
+        </Link>
+        <Link href="/">
+          <a className="hover:underline align-text-top hidden sm:inline">
+            Resources
+          </a>
+        </Link>
+        <Link href="/">
+          <a className="hover:underline align-text-top hidden sm:inline">
+            Free Case Study
+          </a>
+        </Link>
+        <Link href="/">
+          <a className="hover:underline align-text-top hidden sm:inline">
+            Reviews
+          </a>
         </Link>
       </div>
-      <div className="space-x-5 m-5">
-        <Link href="/">
-          <a className="hover:underline hidden sm:inline">Gmail</a>
-        </Link>
-        <Link href="/">
-          <a className="hover:underline hidden sm:inline">Store</a>
-        </Link>
-        <button className="border-1 p-2 px-4 sm:px-6 bg-blue-500 rounded text-white">
-          Sign In
-        </button>
-      </div>
+      <button className="border-1 p-2 px-4 sm:px-6 bg-blue-500 rounded text-white">
+        Sign In
+      </button>
     </header>
   );
 };
