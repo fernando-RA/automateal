@@ -3,7 +3,7 @@ import Search, { ISearchProps } from './search';
 import { mockSearchProps } from './search.mocks';
 
 export default {
-  title: 'widgets/Search',
+  title: 'utility/Search',
   component: Search,
   argTypes: {},
 } as ComponentMeta<typeof Search>;

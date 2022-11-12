@@ -1,0 +1,39 @@
+.wrapper {
+  /* w-full flex flex-row align-center justify-between  */
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  margin-left: 1.25rem;
+}
+
+.separator_bar {
+  /* relative -ml-0.5 w-0.5 h-24 bg-gray-300 */
+  position: relative;
+  margin-left: 1.25rem;
+  width: 0.125rem;
+  height: 6rem;
+  background-color: #d1d5db;
+}
+
+.menu_icon {
+  /* font-semibold hover:underline align-text-top hidden sm:inline */
+  font-weight: 600;
+  vertical-align: text-top;
+  display: none;
+  margin-left: 1.25rem;
+}
+.menu_icon:hover {
+  text-decoration: underline;
+}
+@media screen and (min-width: 768px) {
+  .menu_icon {
+    display: inline;
+  }
+}
