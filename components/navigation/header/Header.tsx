@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import AuthButton from '../../buttons/auth/AuthButton';
-import styles from './Header.module.css';
+import styles from './Header.module.scss';
 export interface IHeader extends React.ComponentPropsWithoutRef<'header'> {}
 
 const Header: React.FC<IHeader> = ({ className, ...headerProps }) => {
@@ -16,7 +16,7 @@ const Header: React.FC<IHeader> = ({ className, ...headerProps }) => {
   return (
     <header {...headerProps} className={styles.wrapper}>
       <div className={styles.container}>
-        <Link href="/">
+        <Link rel="preload" href="/">
           <Image
             src="/automateal_logo2.1.jpeg"
             alt="Logo"

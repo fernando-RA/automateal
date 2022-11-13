@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { ISearchData } from '../../../lib/search/types';
-import styles from './SearchResult.module.css';
+import styles from './SearchResult.module.scss';
 
 export type ISearchResult = ISearchData & React.ComponentPropsWithoutRef<'div'>;
 

@@ -1,0 +1,22 @@
+.container {
+  margin: 0 2rem 0 2rem;
+}
+
+/* border-1 p-2 px-4 sm:px-6 bg-blue-500 rounded text-white w-28 */
+.primary_button {
+  border-width: 1px;
+  border-radius: 0.25rem; /* 4px */
+  padding: 0.5rem; /* 8px */
+  padding-left: 1rem; /* 16px */
+  padding-right: 1rem; /* 16px */
+  width: 7rem; /* 112px */
+  color: white;
+  background-color: rgb(59 130 246);
+}
+
+@media screen and (min-width: 768px) {
+  .primary_button {
+    padding-left: 1.5rem; /* 24px */
+    padding-right: 1.5rem; /* 24px */
+  }
+}

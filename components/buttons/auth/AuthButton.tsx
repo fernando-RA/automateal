@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import AuthContext from '../../../state/auth/authContext';
-import styles from './AuthButton.module.css';
+import styles from './AuthButton.module.scss';
 
 export interface IAuthButton extends React.ComponentPropsWithoutRef<'button'> {}
 
@@ -10,7 +10,7 @@ const AuthButton: React.FC<IAuthButton> = ({ className, ...buttonProps }) => {
   return (
     <button
       onClick={authenticated ? logOut : login}
-      className={`${styles.container} ${className} border-1 p-2 px-4 sm:px-6 bg-blue-500 rounded text-white w-28`}
+      className={`${styles.container} ${styles.primary_button} ${className} `}
       {...buttonProps}
     >
       {authenticated ? 'Sign Out' : 'Sign In'}

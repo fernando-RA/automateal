@@ -2,7 +2,7 @@ import PrimaryLayout from '../../components/layouts/primary/PrimaryLayout';
 import SearchResult from '../../components/utility/searchResult/SearchResult';
 import { mockSearchResultProps } from '../../components/utility/searchResult/SearchResult.mocks';
 import { NextPageWithLayout } from '../page';
-import styles from './Results.module.css';
+import styles from './Results.module.scss';
 
 const Results: NextPageWithLayout = () => {
   return (
@@ -22,5 +22,5 @@ const Results: NextPageWithLayout = () => {
 export default Results;
 
 Results.getLayout = (page) => {
-  return <PrimaryLayout>{page}</PrimaryLayout>;
+  return <PrimaryLayout justify="start">{page}</PrimaryLayout>;
 };
