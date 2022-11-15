@@ -1,3 +1,4 @@
+import Router from 'next/router';
 import { useState } from 'react';
 import styles from './search.module.scss';
 export interface ISearchProps {}
@@ -6,7 +7,7 @@ const Search: React.FC<ISearchProps> = () => {
   const [searchTerm, setSearchTerm] = useState<string>();
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    alert(searchTerm);
+    Router.push(`/results?search=${searchTerm}`);
   };
 
   return (
