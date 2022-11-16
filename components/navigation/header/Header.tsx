@@ -14,7 +14,7 @@ const Header: React.FC<IHeader> = ({ className, ...headerProps }) => {
   ];
 
   return (
-    <header {...headerProps} className={styles.wrapper}>
+    <header {...headerProps} className={`${styles.wrapper} ${styles.header}`}>
       <div className={styles.container}>
         <Link rel="preload" href="/">
           <Image

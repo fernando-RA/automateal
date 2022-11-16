@@ -1,16 +1,24 @@
 import Head from 'next/head';
+import { useContext } from 'react';
+import AuthContext from '../../../state/auth/authContext';
+import FeatureFlagsContext from '../../../state/featureFlags/featureFlags';
 import Footer from '../../navigation/footer/Footer';
 import Header from '../../navigation/header/Header';
-import styles from './PrimaryLayout.module.scss';
-export interface IPrimaryLayout {
+import LayerOneNav from '../../navigation/layerOneNav/layerOneNav';
+import styles from './LandingPage.module.scss';
+
+export interface ILandingPage {
   children: React.ReactNode;
   justify?: 'center' | 'start';
 }
 
-const PrimaryLayout: React.FC<IPrimaryLayout> = ({
+const LandingPage: React.FC<ILandingPage> = ({
   children,
   justify = 'center',
 }) => {
+  const { authenticated } = useContext(AuthContext);
+  const { shouldShowNavBar } = useContext(FeatureFlagsContext);
+
   const styleJustify = () => {
     return justify === 'center' ? styles.centered : styles.align_left;
   };
@@ -22,7 +30,8 @@ const PrimaryLayout: React.FC<IPrimaryLayout> = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={`${styles.container} ${styleJustify()}`}>
-        <Header />
+        {!authenticated ? <LayerOneNav /> : null}
+        {shouldShowNavBar ? <Header /> : null}
         <main className={styles.main_page}>{children}</main>
         <div className={styles.space_filler} />
         <Footer />
@@ -31,4 +40,4 @@ const PrimaryLayout: React.FC<IPrimaryLayout> = ({
   );
 };
 
-export default PrimaryLayout;
+export default LandingPage;

@@ -1,5 +1,5 @@
 import type { AppProps } from 'next/app';
-import { AuthProvider } from '../state/auth/authContext';
+import { ContextProviders } from '../state';
 import '../styles/globals.css';
 import '../styles/globals.scss';
 import { NextPageWithLayout } from './page';
@@ -10,7 +10,11 @@ interface AppPropsWithLayout extends AppProps {
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout || ((page) => page);
-  return <AuthProvider>{getLayout(<Component {...pageProps} />)}</AuthProvider>;
+  return (
+    <ContextProviders>
+      {getLayout(<Component {...pageProps} />)}
+    </ContextProviders>
+  );
 }
 
 export default MyApp;

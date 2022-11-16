@@ -4,7 +4,7 @@ export interface IBaseTemplateProps {
 }
 
 const BaseTemplate: React.FC<IBaseTemplateProps> = ({ sampleTextProp }) => {
-  return <div className={styles.base_container}>{sampleTextProp}</div>;
+  return <div className={styles.base_container}>{sampleTextProp}</div>
 };
 
 export default BaseTemplate;

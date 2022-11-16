@@ -1,5 +1,5 @@
 import { GetServerSideProps } from 'next';
-import PrimaryLayout from '../../components/layouts/primary/PrimaryLayout';
+import LandingPage from '../../components/layouts/landingPage/LandingPage';
 import SearchResult from '../../components/utility/searchResult/SearchResult';
 import { ISearchData } from '../../lib/search/types';
 import { IApiSearchResponseData } from '../api/search';
@@ -54,5 +54,5 @@ const Results: NextPageWithLayout<IResults> = ({ searchResults }) => {
 export default Results;
 
 Results.getLayout = (page) => {
-  return <PrimaryLayout justify="start">{page}</PrimaryLayout>;
+  return <LandingPage justify="start">{page}</LandingPage>;
 };
