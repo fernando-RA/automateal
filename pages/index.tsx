@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import LandingPage from '../components/layouts/landingPage/LandingPage';
 import { Logo } from '../components/navigation/Logo/Logo';
@@ -12,16 +12,13 @@ const Home: NextPageWithLayout = () => {
     <section className={styles.section_container}>
       <Logo />
       <Search />
-      <p>
-        Offered in:{' '}
-        <Link
-          href="/"
-          locale={locale === 'en' ? 'pt-br' : 'en'}
-          className={styles.language_label}
-        >
-          Português
-        </Link>
-      </p>
+      <Image
+        src="/hero-banner.jpeg"
+        width={1920}
+        height={1280}
+        className={styles.hero_banner_background_image}
+        alt="hero_banner"
+      />
     </section>
   );
 };

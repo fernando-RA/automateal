@@ -5,13 +5,7 @@ import styles from './Header.module.scss';
 export interface IHeader extends React.ComponentPropsWithoutRef<'header'> {}
 
 const Header: React.FC<IHeader> = ({ className, ...headerProps }) => {
-  const menuItems = [
-    'Our Story',
-    'Philosophy',
-    'Resources',
-    'Free Case Study',
-    'Reviews',
-  ];
+  const menuItems = ['Our Story', 'Resources', 'Reviews'];
 
   return (
     <header {...headerProps} className={`${styles.wrapper} ${styles.header}`}>
@@ -23,7 +17,7 @@ const Header: React.FC<IHeader> = ({ className, ...headerProps }) => {
       </div>
       <div className={`${styles.navigation_items}`}>
         {menuItems.map((item) => (
-          <Link href="/" key={item} className={styles.menu_icon}>
+          <Link href="/subscribe" key={item} className={styles.menu_icon}>
             {item}
           </Link>
         ))}

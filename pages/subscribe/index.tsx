@@ -13,7 +13,7 @@ const Subscribe: NextPageWithLayout = () => {
   const handleSubscribe = async (event: FormEvent) => {
     event.preventDefault();
     console.log('createSubscriber');
-    Router.push('/event');
+    Router.push('/');
   };
   return (
     <div className={styles.hero_banner_section}>
@@ -21,10 +21,10 @@ const Subscribe: NextPageWithLayout = () => {
         <div className={styles.hero_banner_wrapper}>
           <Logo />
           <h1 className={styles.main_title}>
-            Aumente o faturamento da sua {' '}
+            Aumente o faturamento da sua{' '}
             <strong className={styles.text_evidence}>empresa</strong>
             <br />
-            com nossa estratégia de {' '}
+            com nossa estratégia de{' '}
             <strong className={styles.text_evidence}>Inside Sales</strong>
           </h1>
           <p className={styles.description}>

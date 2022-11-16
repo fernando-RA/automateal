@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import { BannerLogo } from '../Logo/Logo';
 import styles from './layerOneNav.module.scss';
 
@@ -13,8 +14,13 @@ const LayerOneNav: React.FC<IlayerOneNavProps> = ({
 }) => {
   const router = useRouter();
   const handleL1NavClick = (): void => {
-    router.push('/subscribe');
+    router.pathname.includes('/subscribe')
+      ? router.push('/')
+      : router.push('/subscribe');
   };
+
+  useEffect(() => {}, [router.pathname]);
+
   return (
     <div
       className={`${styles.section_banner_plus} ${styles.colored_background} ${styles.wf_section}`}

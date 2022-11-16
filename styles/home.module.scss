@@ -5,6 +5,10 @@
   align-items: center;
   row-gap: 1.25rem;
   margin-top: 3rem;
+  min-height: 640px;
+  width: 100vw;
+  background-size: contain;
+  background-blend-mode: color-burn;
 }
 
 /* underline text-blue-600 */

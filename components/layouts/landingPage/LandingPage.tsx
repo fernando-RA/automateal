@@ -26,7 +26,7 @@ const LandingPage: React.FC<ILandingPage> = ({
   return (
     <>
       <Head>
-        <title>Automateal</title>
+        <title>Inside Sales Turbo</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={`${styles.container} ${styleJustify()}`}>
