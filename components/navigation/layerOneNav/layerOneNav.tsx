@@ -24,15 +24,7 @@ const LayerOneNav: React.FC<IlayerOneNavProps> = ({
         <a className={`${styles.div_link_plus} ${styles.w_inline_block}`}>
           <div
             className={`${styles.logo_plus} ${styles.w_embed} ${styles.desktop}`}
-          >
-            {/* <Image
-              src="/favicon.ico"
-              alt="Logo"
-              width={16}
-              height={16}
-              priority
-            />{' '} */}
-          </div>
+          ></div>
           <div
             className={`${styles.icon_plus} ${styles.w_embed} ${styles.mobile}`}
           >

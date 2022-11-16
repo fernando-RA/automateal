@@ -1,0 +1,19 @@
+.about_section {
+  margin: 1.25rem;
+  align-items: center;
+  text-align: center;
+}
+.about_section h2 {
+  font-size: 3rem;
+}
+.about_disclaimer {
+  display: block;
+  position: relative;
+  text-align: center;
+
+  h3,
+  p {
+    font-size: 1.25rem;
+    margin: 1rem;
+  }
+}

@@ -1,7 +1,7 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import LandingPage from '../components/layouts/landingPage/LandingPage';
+import { Logo } from '../components/navigation/Logo/Logo';
 import Search from '../components/utility/search/search';
 import styles from '../styles/home.module.scss';
 import { NextPageWithLayout } from './page';
@@ -10,13 +10,7 @@ const Home: NextPageWithLayout = () => {
   const { locale } = useRouter();
   return (
     <section className={styles.section_container}>
-      <Image
-        src="/automateal_logo.jpeg"
-        alt="Logo"
-        width={240}
-        height={240}
-        priority
-      />
+      <Logo />
       <Search />
       <p>
         Offered in:{' '}
