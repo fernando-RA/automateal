@@ -10,6 +10,7 @@ module.exports = {
         '!<rootDir>/.next/**',
         '!<rootDir>/*.config.js',
         '!<rootDir>/coverage/**',
+        '!<rootDir>/.storybook/**'
     ],
     moduleNameMapper: {
         // Handle CSS imports (with CSS modules)
@@ -38,5 +39,7 @@ module.exports = {
     transformIgnorePatterns: [
         '/node_modules/',
         '^.+\\.module\\.(css|sass|scss)$',
+        '^.+\\.mock\\.(ts)$',
+        '^.+\\.stories\\.(tsx)$',
     ],
 }

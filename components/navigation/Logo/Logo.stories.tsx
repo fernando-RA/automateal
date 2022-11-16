@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import Logo, { ILogoProps } from './Logo';
+import { ILogoProps, Logo } from './Logo';
 import { mockLogoProps } from './Logo.mocks';
 
 export default {
