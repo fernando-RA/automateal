@@ -79,3 +79,11 @@
 .hero_banner_background_image {
   margin-top: 1.25rem;
 }
+
+@media screen and (max-width: 768px) {
+  .hero_banner_container {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column; /*This solves everything*/
+  }
+}
