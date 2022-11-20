@@ -1,8 +1,16 @@
-
 .logo_banner {
-  font-size: 3rem;
+  font-size: 4vmin;
   font-weight: 300;
   line-height: 0%;
   font-family: 'Passion One';
   color: $white;
+  display: flex;
+}
+
+.logo_background_image {
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 3px;
+  border-style: ridge;
+  border-color: $gray-600;
 }

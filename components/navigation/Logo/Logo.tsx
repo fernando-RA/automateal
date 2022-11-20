@@ -1,13 +1,14 @@
+import Image from 'next/image';
 import styles from './Logo.module.scss';
 export interface ILogoProps {
-  custom_svg?: SVGAElement | undefined;
+  source?: string;
 }
 
-export const Logo: React.FC<ILogoProps> = ({ custom_svg }) => {
+export const Logo: React.FC<ILogoProps> = ({ source }) => {
   return <div className={styles.logo_banner}>Inside Sales Turbo</div>;
 };
 
-export const BannerLogo: React.FC<ILogoProps> = ({ custom_svg }) => {
+export const BannerLogo: React.FC<ILogoProps> = () => {
   return (
     <svg
       width="27"
@@ -21,5 +22,17 @@ export const BannerLogo: React.FC<ILogoProps> = ({ custom_svg }) => {
         fill="black"
       ></path>
     </svg>
+  );
+};
+
+export const LogoBackgroundImage: React.FC<ILogoProps> = ({ source }) => {
+  return (
+    <Image
+      src={source}
+      width={1920}
+      height={1280}
+      className={styles.logo_background_image}
+      alt="hero_banner"
+    />
   );
 };

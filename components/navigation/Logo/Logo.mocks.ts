@@ -1,8 +1,6 @@
 import { ILogoProps } from './Logo';
 
-const base: ILogoProps = {
-  custom_svg: undefined,
-};
+const base: ILogoProps = {};
 
 export const mockLogoProps = {
   base,

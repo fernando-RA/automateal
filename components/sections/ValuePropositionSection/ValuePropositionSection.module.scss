@@ -1,0 +1,28 @@
+.container {
+  flex-direction: row;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  background-color: $gray-800;
+}
+.div_logos {
+  display: flex;
+  align-items: center;
+  -webkit-box-align: center;
+  margin-top: 1.5rem;
+}
+.div_logos_body {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.div_logos_imgs {
+  margin: 10px;
+  border: 0;
+  max-width: 100%;
+  vertical-align: middle;
+  display: inline-block;
+  width: 70px;
+  & svg > path {
+    fill: $white;
+  }
+}

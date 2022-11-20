@@ -1,0 +1,17 @@
+/* bg-gradient-to-r from-blue-300 to-teal-700 */
+.container {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-image: linear-gradient(
+    to bottom,
+    $background,
+    $orange-900,
+    $orange-700,
+    $gray-700,
+    $background
+  );
+}
