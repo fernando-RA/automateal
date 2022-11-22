@@ -28,6 +28,7 @@ export const BannerLogo: React.FC<ILogoProps> = () => {
 export const LogoBackgroundImage: React.FC<ILogoProps> = ({ source }) => {
   return (
     <Image
+      priority
       src={source}
       width={1920}
       height={1280}

@@ -1,5 +1,5 @@
 import { createMocks } from 'node-mocks-http';
-import handler from '../pages/api/search';
+import handler from '../src/pages/api/search';
 
 describe('/api/search', () => {
   test('should query for cats and an object with cats detail', async () => {

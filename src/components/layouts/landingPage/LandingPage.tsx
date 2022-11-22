@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import { useContext } from 'react';
 import AuthContext from '../../../state/auth/authContext';
 import FeatureFlagsContext from '../../../state/featureFlags/featureFlags';
@@ -25,10 +24,6 @@ const LandingPage: React.FC<ILandingPage> = ({
 
   return (
     <>
-      <Head>
-        <title>Inside Sales Turbo</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <div className={`${styles.container} ${styleJustify()}`}>
         {!authenticated ? <LayerOneNav /> : null}
         {shouldShowNavBar ? <Header /> : null}

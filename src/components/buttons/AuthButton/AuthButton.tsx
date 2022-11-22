@@ -13,7 +13,7 @@ const AuthButton: React.FC<IAuthButton> = ({ className, ...buttonProps }) => {
       className={`${styles.container} ${styles.primary_button} ${className} `}
       {...buttonProps}
     >
-      {authenticated ? 'Sign Out' : 'Sign In'}
+      {authenticated ? 'LogOut' : 'Start Free Trial'}
     </button>
   );
 };

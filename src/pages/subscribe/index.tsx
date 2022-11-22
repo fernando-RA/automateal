@@ -63,6 +63,7 @@ const Subscribe: NextPageWithLayout = () => {
       </div>
 
       <Image
+        priority
         src="/hero-banner.jpeg"
         width={1920}
         height={1280}
