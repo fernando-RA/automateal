@@ -19,10 +19,17 @@
     "test_watch": "jest --watch"
   },
   "dependencies": {
+    "@chakra-ui/pro-theme": "^0.0.57",
+    "@chakra-ui/react": "^2.4.1",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "@fontsource/inter": "^4.5.14",
+    "framer-motion": "^6",
     "husky": "^8.0.1",
     "next": "^13.0.3",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.6.0"
   },
   "devDependencies": {
     "@babel/core": "^7.18.9",
