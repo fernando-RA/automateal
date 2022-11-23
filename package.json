@@ -23,6 +23,7 @@
     "@chakra-ui/react": "^2.4.1",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
+    "@fontsource/fira-code": "^4.5.12",
     "@fontsource/inter": "^4.5.14",
     "framer-motion": "^6",
     "husky": "^8.0.1",

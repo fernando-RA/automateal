@@ -1,48 +1,151 @@
-import { useRouter } from 'next/router';
-import { ArrowBendRightUp } from 'phosphor-react';
-import styles from './Footer.module.scss';
+// import { useRouter } from 'next/router';
+// import { ArrowBendRightUp } from 'phosphor-react';
+// import styles from './Footer.module.scss';
 
 export interface IFooter extends React.ComponentPropsWithoutRef<'footer'> {}
 
-type FooterLinkObject = { label: string; url: string };
+// type FooterLinkObject = { label: string; url: string };
+
+// const Footer: React.FC<IFooter> = ({ className, ...footerProps }) => {
+//   const router = useRouter();
+
+//   return (
+//     <footer
+//       {...footerProps}
+//       className={`${className} ${styles.footer_container}`}
+//     >
+//       <div className={styles.footer_section}>
+//         <div className={styles.footer_links_container}>
+//           {footerLinks.map((link: FooterLinkObject) => {
+//             return (
+//               <a
+//                 key={link.label}
+//                 className={styles.footer_links_item}
+//                 onClick={(e) => {
+//                   e.preventDefault;
+//                   router.push(`${link.url}`);
+//                 }}
+//               >
+//                 {link.label}
+//               </a>
+//             );
+//           })}
+//         </div>
+//         <div className={styles.footer_links_container}>
+//           <a className={styles.footer_btn_goTop} href="#header">
+//             <ArrowBendRightUp size={24} />
+//           </a>
+//         </div>
+//       </div>
+//     </footer>
+//   );
+// };
+
+// export default Footer;
+
+import {
+  Button,
+  ButtonGroup,
+  Container,
+  Divider,
+  IconButton,
+  Input,
+  Stack,
+  Text,
+} from '@chakra-ui/react';
+import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { BannerLogo } from '../Logo/Logo';
 
 const Footer: React.FC<IFooter> = ({ className, ...footerProps }) => {
-  const router = useRouter();
-  const footerLinks: FooterLinkObject[] = [
-    { label: 'Direitos autorais', url: 'about#copyright' },
-    { label: 'Termos de uso', url: 'about#terms' },
-    { label: 'Politicas de privacidade', url: 'about#privacy' },
-  ];
-
   return (
-    <footer
-      {...footerProps}
-      className={`${className} ${styles.footer_container}`}
-    >
-      <div className={styles.footer_section}>
-        <div className={styles.footer_links_container}>
-          {footerLinks.map((link: FooterLinkObject) => {
-            return (
-              <a
-                key={link.label}
-                className={styles.footer_links_item}
-                onClick={(e) => {
-                  e.preventDefault;
-                  router.push(`${link.url}`);
-                }}
-              >
-                {link.label}
-              </a>
-            );
-          })}
-        </div>
-        <div className={styles.footer_links_container}>
-          <a className={styles.footer_btn_goTop} href="#header">
-            <ArrowBendRightUp size={24} />
-          </a>
-        </div>
-      </div>
-    </footer>
+    <Container maxW="100%" as="footer" role="contentinfo">
+      <Stack
+        spacing="8"
+        direction={{ base: 'column', md: 'row' }}
+        justify="space-between"
+        py={{ base: '12', md: '16' }}
+      >
+        <Stack spacing={{ base: '6', md: '8' }} align="start">
+          <BannerLogo />
+          <Text color="muted">Create beautiful websites remarkably fast.</Text>
+        </Stack>
+        <Stack
+          direction={{ base: 'column-reverse', md: 'column', lg: 'row' }}
+          spacing={{ base: '12', md: '8' }}
+        >
+          <Stack direction="row" spacing="8">
+            <Stack spacing="4" minW="36" flex="1">
+              <Text fontSize="sm" fontWeight="semibold" color="subtle">
+                Product
+              </Text>
+              <Stack spacing="3" shouldWrapChildren>
+                <Button variant="link">How it works</Button>
+                <Button variant="link">Pricing</Button>
+                <Button variant="link">Use Cases</Button>
+              </Stack>
+            </Stack>
+            <Stack spacing="4" minW="36" flex="1">
+              <Text fontSize="sm" fontWeight="semibold" color="subtle">
+                Legal
+              </Text>
+              <Stack spacing="3" shouldWrapChildren>
+                <Button variant="link">Politicas de privacidade</Button>
+                <Button variant="link">Termos de uso</Button>
+                <Button variant="link">Direitos autorais</Button>
+              </Stack>
+            </Stack>
+          </Stack>
+          <Stack spacing="4">
+            <Text fontSize="sm" fontWeight="semibold" color="subtle">
+              Stay up to date
+            </Text>
+            <Stack
+              spacing="4"
+              direction={{ base: 'column', sm: 'row' }}
+              maxW={{ lg: '360px' }}
+            >
+              <Input placeholder="Enter your email" type="email" required />
+              <Button variant="primary" type="submit" flexShrink={0}>
+                Subscribe
+              </Button>
+            </Stack>
+          </Stack>
+        </Stack>
+      </Stack>
+      <Divider />
+      <Stack
+        pt="8"
+        pb="12"
+        justify="space-between"
+        direction={{ base: 'column-reverse', md: 'row' }}
+        align="center"
+      >
+        <Text fontSize="sm" color="subtle">
+          &copy; {new Date().getFullYear()} Chakra UI Pro, Inc. All rights
+          reserved.
+        </Text>
+        <ButtonGroup variant="ghost">
+          <IconButton
+            as="a"
+            href="#"
+            aria-label="LinkedIn"
+            icon={<FaLinkedin fontSize="1.25rem" />}
+          />
+          <IconButton
+            as="a"
+            href="#"
+            aria-label="GitHub"
+            icon={<FaGithub fontSize="1.25rem" />}
+          />
+          <IconButton
+            as="a"
+            href="#"
+            aria-label="Twitter"
+            icon={<FaTwitter fontSize="1.25rem" />}
+          />
+        </ButtonGroup>
+      </Stack>
+    </Container>
   );
 };
 
