@@ -1,8 +1,7 @@
+import { Box, Container, Link, Stack, Text } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
-import { BannerLogo } from '../Logo/Logo';
 import styles from './layerOneNav.module.scss';
-
 export interface IlayerOneNavProps {
   title?: string;
   cta?: string;
@@ -22,28 +21,27 @@ const LayerOneNav: React.FC<IlayerOneNavProps> = ({
   useEffect(() => {}, [router.pathname]);
 
   return (
-    <div
-      className={`${styles.section_banner_plus} ${styles.colored_background} ${styles.wf_section}`}
+    <Box
+      as="section"
       onClick={handleL1NavClick}
+      className={styles.colored_background}
     >
-      <div className={`${styles.container_10} ${styles.w_container}`}>
-        <a className={`${styles.div_link_plus} ${styles.w_inline_block}`}>
-          <div
-            className={`${styles.logo_plus} ${styles.w_embed} ${styles.desktop}`}
-          ></div>
-          <div
-            className={`${styles.icon_plus} ${styles.w_embed} ${styles.mobile}`}
-          >
-            <strong>Inside Sales Turbo</strong>
-            <BannerLogo></BannerLogo>
-          </div>
-          <div className={`${styles.text_top_banner_plus} ${styles.p_16}`}>
-            <p>{title}</p> <strong>{cta}</strong>
-          </div>
-        </a>
-      </div>
-    </div>
+      <Link>
+        <Box bg="bg-accent" color="on-accent" position="initial">
+          <Container py={{ base: '4', md: '3.5' }}>
+            <Stack
+              direction={{ base: 'column', md: 'row' }}
+              justify="center"
+              spacing={{ base: '0.5', md: '1.5' }}
+              pe={{ base: '4', sm: '0' }}
+            >
+              <Text fontWeight="medium">{title}</Text>
+              <Text color="on-accent-muted">{cta}</Text>
+            </Stack>
+          </Container>
+        </Box>
+      </Link>
+    </Box>
   );
 };
-
 export default LayerOneNav;

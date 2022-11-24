@@ -4,11 +4,11 @@ import { useContext } from 'react';
 import AuthContext from '../../../state/auth/authContext';
 import FeatureFlagsContext from '../../../state/featureFlags/featureFlags';
 import Footer from '../../navigation/footer/Footer';
-import Header from '../../navigation/header/Header';
 import LayerOneNav from '../../navigation/layerOneNav/layerOneNav';
 import { Navbar } from '../../navigation/Navbar';
 import { Main } from '../../sections/Main';
 import styles from './LandingPage.module.scss';
+
 export interface ILandingPage {
   children: React.ReactNode;
   justify?: 'center' | 'start';
@@ -29,8 +29,7 @@ const LandingPage: React.FC<ILandingPage> = ({
     <>
       <Flex direction="column" flex="1">
         {!authenticated ? <LayerOneNav /> : null}
-        <Navbar />
-        {shouldShowNavBar ? <Header /> : null}
+        {shouldShowNavBar ? <Navbar /> : null}
         <Main>{children}</Main>
         <Footer />
       </Flex>
