@@ -1,7 +1,7 @@
 import { IValuePropositionSectionProps } from './ValuePropositionSection';
 
 const base: IValuePropositionSectionProps = {
-  sampleTextProp: 'Hello World!',
+  id: 'mockId',
 };
 
 export const mockValuePropositionSectionProps = {

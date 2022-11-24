@@ -1,7 +1,6 @@
 import { Center, Container, SimpleGrid, Stack, Text } from '@chakra-ui/react';
 
 import { chakra, HTMLChakraProps } from '@chakra-ui/react';
-
 export const Logo1 = (props: HTMLChakraProps<'svg'>) => (
   <chakra.svg viewBox="0 0 168 41" fill="currentColor" {...props}>
     <path d="M49.2775 28.9524H61.2295V25.3524H53.5255V11.7924H49.2775V28.9524Z" />
@@ -141,7 +140,13 @@ export const Logo5 = (props: HTMLChakraProps<'svg'>) => (
 
 const logos = [Logo1, Logo2, Logo3, Logo4, Logo5];
 
-const ValuePropositionSection = () => (
+export interface IValuePropositionSectionProps {
+  id?: string;
+}
+
+const ValuePropositionSection: React.FC<IValuePropositionSectionProps> = ({
+  id,
+}) => (
   <Container py={{ base: '12', md: '16' }}>
     <Stack spacing="8">
       <Text
