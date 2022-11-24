@@ -37,7 +37,9 @@ export const Navbar = () => {
       >
         <Container maxW="100%" py={{ base: '4', lg: '5' }}>
           <HStack spacing="10" justify="space-between">
-            <InsideSalesTurboLogo />
+            <Link href="/">
+              <InsideSalesTurboLogo />
+            </Link>
             {isDesktop ? (
               <Flex justify="space-between" flex="1">
                 <ButtonGroup variant="link" spacing="8">
@@ -52,6 +54,7 @@ export const Navbar = () => {
                     size="sm"
                     colorScheme="blue"
                     onClick={toggleColorMode}
+                    aria-label="toggle theme"
                   >
                     <FaMoon />
                   </Button>

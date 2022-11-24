@@ -10,8 +10,8 @@ const Home: NextPageWithLayout = () => {
     <>
       <section>
         <MainSection
-          id="Features"
-          title="A Better Place To Run Your Agency"
+          id="Hero"
+          title="A Better Place To Run Your Inside Sales"
           subtitle="Get Paid, Communicate with Clients, and Manage Projects & Tasks - All on the same platform."
           description="Attract more clients, serve them better and keep them longer."
         ></MainSection>

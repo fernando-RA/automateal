@@ -16,6 +16,7 @@ import { BannerLogo } from '../Logo/Logo';
 const Footer: React.FC<IFooter> = ({ className, ...footerProps }) => {
   return (
     <Container maxW="100%" as="footer" role="contentinfo">
+      <Divider borderWidth="1px" borderColor="gray.300" />
       <Stack
         spacing="8"
         direction={{ base: 'column', md: 'row' }}
@@ -69,7 +70,6 @@ const Footer: React.FC<IFooter> = ({ className, ...footerProps }) => {
           </Stack>
         </Stack>
       </Stack>
-      <Divider />
       <Stack
         pt="8"
         pb="12"
@@ -78,7 +78,7 @@ const Footer: React.FC<IFooter> = ({ className, ...footerProps }) => {
         align="center"
       >
         <Text fontSize="sm" color="subtle">
-          &copy; {new Date().getFullYear()} Chakra UI Pro, Inc. All rights
+          &copy; {new Date().getFullYear()} Inside Sales Turbo, Inc. All rights
           reserved.
         </Text>
         <ButtonGroup variant="ghost">

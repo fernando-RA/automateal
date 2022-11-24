@@ -37,7 +37,7 @@ const DetailsSection: React.FC<IDetailsSectionProps> = ({
       maxW="7xl"
       mx="auto"
       px={{ base: '0', lg: '12' }}
-      py={{ base: '0', lg: '6' }}
+      py={{ base: '0', lg: '12' }}
     >
       <Stack
         direction={{ base: 'column-reverse', lg: 'row' }}
@@ -51,7 +51,7 @@ const DetailsSection: React.FC<IDetailsSectionProps> = ({
           }}
           mx={{ base: '6', md: '8', lg: '0' }}
           px={{ base: '6', md: '8', lg: '0' }}
-          py={{ base: '6', md: '8', lg: '6' }}
+          py={{ base: '6', md: '8', lg: '12' }}
         >
           <Stack spacing={{ base: '8', lg: '10' }}>
             <Stack spacing={{ base: '2', lg: '4' }}>

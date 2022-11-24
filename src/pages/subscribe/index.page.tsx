@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Router from 'next/router';
 import { FormEvent, useState } from 'react';
 import LandingPage from '../../components/layouts/landingPage/LandingPage';
@@ -61,15 +60,6 @@ const Subscribe: NextPageWithLayout = () => {
           </form>
         </div>
       </div>
-
-      <Image
-        priority
-        src="/hero-banner.jpeg"
-        width={1920}
-        height={1280}
-        className={styles.hero_banner_background_image}
-        alt="hero_banner"
-      />
     </div>
   );
 };

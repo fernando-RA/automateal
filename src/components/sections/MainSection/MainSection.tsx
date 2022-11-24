@@ -5,9 +5,10 @@ import {
   Heading,
   Stack,
   Text,
-  useBreakpointValue,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import { ReactNode } from 'react';
+import ValuePropositionSection from '../ValuePropositionSection/ValuePropositionSection';
 export interface IMainSectionProps {
   id: string;
   title: string;
@@ -23,18 +24,43 @@ const MainSection: React.FC<IMainSectionProps> = ({
   description,
   children,
 }) => {
+  const color = useColorModeValue('gray.800', 'white');
   return (
-    <Box as="section" bg="bg-surface" id={id}>
-      <Container py={{ base: '16', md: '24' }}>
+    <Box id={id} as="section" bg="bg-surface">
+      <Container
+        maxW="960px"
+        minH="-webkit-fit-content"
+        paddingTop={{ base: '16', md: '24' }}
+      >
         <Stack spacing={{ base: '8', md: '10' }}>
           <Stack spacing={{ base: '4', md: '5' }} align="center">
-            <Heading size={useBreakpointValue({ base: 'sm', md: 'md' })}>
+            <Heading
+              as="h1"
+              paddingBottom="3rem"
+              textAlign="center"
+              lineHeight="1.2em"
+              bgGradient={`linear(to-r, ${color}, blue)`}
+              bgClip="text"
+              fontSize="5rem"
+              fontWeight="extrabold"
+            >
               {title}
             </Heading>
-            <Text color="muted" maxW="2xl" textAlign="center" fontSize="xl">
+            <Heading
+              textAlign="center"
+              fontSize="2em"
+              maxW="80%"
+              lineHeight="1.2em"
+            >
               {subtitle}
-            </Text>
-            <Text color="muted" maxW="2xl" textAlign="center" fontSize="xl">
+            </Heading>
+            <Text
+              color="muted"
+              maxW="2xl"
+              py="2rem"
+              textAlign="center"
+              fontSize="xl"
+            >
               {description}
             </Text>
           </Stack>
@@ -49,6 +75,9 @@ const MainSection: React.FC<IMainSectionProps> = ({
             <Button variant="solid" size="lg">
               Start Free Trial
             </Button>
+          </Stack>
+          <Stack>
+            <ValuePropositionSection></ValuePropositionSection>
           </Stack>
         </Stack>
       </Container>
