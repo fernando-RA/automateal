@@ -19,6 +19,7 @@ export interface IDetailsSectionProps {
   description?: string;
   callToAction?: string;
   imgUrl?: string;
+  imgOrientation?: 'left' | 'right';
   children?: ReactNode;
 }
 
@@ -30,6 +31,7 @@ const DetailsSection: React.FC<IDetailsSectionProps> = ({
   children,
   callToAction,
   imgUrl,
+  imgOrientation = 'right',
 }) => {
   return (
     <Box
@@ -40,7 +42,10 @@ const DetailsSection: React.FC<IDetailsSectionProps> = ({
       py={{ base: '0', lg: '12' }}
     >
       <Stack
-        direction={{ base: 'column-reverse', lg: 'row' }}
+        direction={{
+          base: 'column-reverse',
+          lg: imgOrientation === 'right' ? 'row' : 'row-reverse',
+        }}
         spacing={{ base: '0', lg: '20' }}
       >
         <Box
@@ -59,7 +64,7 @@ const DetailsSection: React.FC<IDetailsSectionProps> = ({
                 {title}
               </Heading>
               <Heading size="xl" fontWeight="normal">
-                {description}
+                {subtitle}
               </Heading>
             </Stack>
             <HStack spacing="3">
@@ -68,7 +73,7 @@ const DetailsSection: React.FC<IDetailsSectionProps> = ({
                 fontWeight="bold"
                 fontSize="lg"
               >
-                {subtitle || callToAction}
+                {description || callToAction}
               </Link>
               <Icon
                 color={useColorModeValue('gray.800', 'white')}

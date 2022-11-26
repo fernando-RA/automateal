@@ -1,4 +1,5 @@
-import { Box, Container, Link, Stack, Text } from '@chakra-ui/react';
+import { Box, Container, Stack, Text } from '@chakra-ui/react';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import styles from './layerOneNav.module.scss';
 export interface IlayerOneNavProps {
@@ -6,14 +7,20 @@ export interface IlayerOneNavProps {
   cta?: string;
 }
 
-const LayerOneNav: React.FC<IlayerOneNavProps> = ({
-  title = 'O Inside Sales Turbo ja está disponivel!',
-  cta = '✨Assine Agora!✨',
-}) => {
+const LayerOneNav: React.FC<IlayerOneNavProps> = ({ title, cta }) => {
   const router = useRouter();
+  const isSubscribePage = Boolean(router.pathname.includes('subscribe'));
+
+  if (!isSubscribePage) {
+    (title = 'O Inside Sales Turbo ja está disponivel!'),
+      (cta = '✨Assine Agora!✨');
+  } else {
+    title = '';
+    cta = '🏠';
+  }
   return (
     <Box as="section" className={styles.colored_background}>
-      <Link href={router.pathname.includes('/subscribe') ? '/' : '/subscribe'}>
+      <Link href={isSubscribePage ? '/' : 'subscribe'}>
         <Box bg="bg-accent" color="on-accent" position="initial">
           <Container py={{ base: '4', md: '3.5' }}>
             <Stack

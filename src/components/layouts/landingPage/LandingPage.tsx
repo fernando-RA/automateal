@@ -7,23 +7,14 @@ import Footer from '../../navigation/footer/Footer';
 import LayerOneNav from '../../navigation/layerOneNav/layerOneNav';
 import { Navbar } from '../../navigation/Navbar';
 import { Main } from '../../sections/Main';
-import styles from './LandingPage.module.scss';
 
 export interface ILandingPage {
   children: React.ReactNode;
-  justify?: 'center' | 'start';
 }
 
-const LandingPage: React.FC<ILandingPage> = ({
-  children,
-  justify = 'center',
-}) => {
+const LandingPage: React.FC<ILandingPage> = ({ children }) => {
   const { authenticated } = useContext(AuthContext);
   const { shouldShowNavBar } = useContext(FeatureFlagsContext);
-
-  const styleJustify = () => {
-    return justify === 'center' ? styles.centered : styles.align_left;
-  };
 
   return (
     <>
