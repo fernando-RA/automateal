@@ -1,3 +1,4 @@
+import { NextPageWithLayout } from '../../@types/page';
 import LandingPage from '../../components/layouts/landingPage/LandingPage';
 import DetailsSection from '../../components/sections/DetailsSection';
 import { FeatureSection } from '../../components/sections/FeatureSection';
@@ -5,7 +6,6 @@ import MainSection from '../../components/sections/MainSection/MainSection';
 import { OutroSection } from '../../components/sections/OutroSection';
 import { PricingSection } from '../../components/sections/PricingSection';
 import ValuePropositionSection from '../../components/sections/ValuePropositionSection/ValuePropositionSection';
-import { NextPageWithLayout } from '../page';
 
 const Home: NextPageWithLayout = () => {
   return (

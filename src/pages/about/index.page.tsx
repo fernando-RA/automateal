@@ -1,5 +1,5 @@
+import { NextPageWithLayout } from '../../@types/page';
 import LandingPage from '../../components/layouts/landingPage/LandingPage';
-import { NextPageWithLayout } from '../page';
 import styles from './about.module.scss';
 
 const About: NextPageWithLayout = () => {

@@ -8,6 +8,7 @@ import {
   Text,
   useColorModeValue as mode,
 } from '@chakra-ui/react';
+import Link from 'next/link';
 import { DurationSwitcher } from './DurationSwitch';
 import { PricingCard } from './PricingCard';
 
@@ -117,17 +118,19 @@ export const PricingSection = () => {
                 </Text>
               </Box>
             </Stack>
-            <Button
-              colorScheme="teal"
-              size="lg"
-              mt={{ base: '6', md: '0' }}
-              w={{ base: 'full', md: 'auto' }}
-              minW="10rem"
-              flexShrink={0}
-              fontSize="md"
-            >
-              Book a demo
-            </Button>
+            <Link href="/schedule-call">
+              <Button
+                colorScheme="teal"
+                size="lg"
+                mt={{ base: '6', md: '0' }}
+                w={{ base: 'full', md: 'auto' }}
+                minW="10rem"
+                flexShrink={0}
+                fontSize="md"
+              >
+                Book a demo
+              </Button>
+            </Link>
           </Flex>
         </Box>
       </Box>

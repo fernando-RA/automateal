@@ -1,5 +1,5 @@
 import { Container, Flex, FlexProps } from '@chakra-ui/react';
-import { Placeholder } from '../../utility/Placeholder';
+import { Placeholder } from '../../../utility/Placeholder';
 
 export const Main = (props: FlexProps) => {
   return (
