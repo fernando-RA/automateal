@@ -5,7 +5,7 @@ import MainSection from '../../components/sections/MainSection/MainSection';
 import { OutroSection } from '../../components/sections/OutroSection';
 import { PricingSection } from '../../components/sections/PricingSection';
 import ValuePropositionSection from '../../components/sections/ValuePropositionSection/ValuePropositionSection';
-import { NextPageWithLayout } from '../page';
+import { NextPageWithLayout } from '../../@types/page';
 
 const Home: NextPageWithLayout = () => {
   return (

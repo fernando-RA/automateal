@@ -2,7 +2,7 @@ import Router from 'next/router';
 import { FormEvent, useState } from 'react';
 import LandingPage from '../../components/layouts/landingPage/LandingPage';
 import { Logo } from '../../components/navigation/Logo/Logo';
-import { NextPageWithLayout } from '../page';
+import { NextPageWithLayout } from '../../@types/page';
 import styles from './subscribe.module.scss';
 
 const Subscribe: NextPageWithLayout = () => {
