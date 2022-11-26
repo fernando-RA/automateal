@@ -8,7 +8,7 @@ const __dirname = path.dirname(__filename);
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  pageExtensions: ['page.tsx', 'api.ts', 'api.tsx'],
+  pageExtensions: ['page.tsx', 'api.ts', 'api.tsx','mdx', 'md', 'jsx', 'js', 'tsx', 'ts'],
   images: {
     domains: ['uploads-ssl.webflow.com'],
   },

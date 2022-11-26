@@ -9,6 +9,9 @@ import {
 } from '@chakra-ui/react';
 import { ReactNode } from 'react';
 import ValuePropositionSection from '../ValuePropositionSection/ValuePropositionSection';
+import { trpc } from "@/utils/trpc";
+import { signIn, signOut, useSession } from "next-auth/react";
+
 export interface IMainSectionProps {
   id: string;
   title: string;
@@ -25,6 +28,7 @@ const MainSection: React.FC<IMainSectionProps> = ({
   children,
 }) => {
   const color = useColorModeValue('gray.800', 'white');
+  const hello = trpc.example.hello.useQuery({ text: "World From tRPC." });
   return (
     <Box id={id} as="section" bg="bg-surface">
       <Container
@@ -65,16 +69,15 @@ const MainSection: React.FC<IMainSectionProps> = ({
             </Text>
           </Stack>
           <Stack
-            spacing="3"
             direction={{ base: 'column', sm: 'row' }}
             justify="center"
           >
-            <Button variant="outline" size="lg">
-              Learn more
-            </Button>
-            <Button variant="solid" size="lg">
-              Start Free Trial
-            </Button>
+            <div className="flex flex-col items-center gap-2">
+            <p className=" justify-center text-center text-2xl">
+              {hello.data ? hello.data.greeting : "Loading tRPC query..."}
+            </p>
+            <AuthShowcase />
+            </div>
           </Stack>
           <Stack>
             <ValuePropositionSection></ValuePropositionSection>
@@ -86,3 +89,28 @@ const MainSection: React.FC<IMainSectionProps> = ({
 };
 
 export default MainSection;
+
+
+const AuthShowcase: React.FC = () => {
+  const { data: sessionData } = useSession();
+
+  const { data: secretMessage } = trpc.auth.getSecretMessage.useQuery(
+    undefined, // no input
+    { enabled: sessionData?.user !== undefined },
+  );
+
+  return (
+    <div className="flex flex-col items-center justify-center gap-2">
+      <p className="text-center text-2xl text-black">
+        {sessionData && <span>Logged in as {sessionData.user?.name}</span>}
+        {secretMessage && <span> - {secretMessage}</span>}
+      </p>
+      <button
+        className="rounded-full bg-blue-500 px-10 py-3 font-semibold text-white no-underline transition hover:bg-white/20"
+        onClick={sessionData ? () => signOut() : () => signIn()}
+      >
+        {sessionData ? "Sign out" : "Sign in"}
+      </button>
+    </div>
+  );
+};

@@ -7,6 +7,7 @@ import { theme } from '../components/layouts/theme';
 import { ContextProviders } from '../state';
 import { NextPageWithLayout } from '../@types/page';import { SessionProvider } from "next-auth/react";
 import { trpc } from "../utils/trpc";
+import "../styles/globals.css";
 
 interface AppPropsWithLayout extends AppProps {
   Component: NextPageWithLayout;
