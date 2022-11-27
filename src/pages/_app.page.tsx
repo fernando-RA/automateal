@@ -1,31 +1,32 @@
 import { ChakraProvider } from '@chakra-ui/react';
+import { type Session } from "next-auth";
 import '@fontsource/inter/variable.css';
 import { Analytics } from '@vercel/analytics/react';
-import type { AppProps } from 'next/app';
-import Head from 'next/head';
+import type { AppProps, AppType } from 'next/app';
 import { theme } from '../components/layouts/theme';
 import { ContextProviders } from '../state';
-import { NextPageWithLayout } from './page';
+import { NextPageWithLayout } from '../@types/page';import { SessionProvider } from "next-auth/react";
+import { trpc } from "../utils/trpc";
+import "../styles/globals.css";
 
 interface AppPropsWithLayout extends AppProps {
   Component: NextPageWithLayout;
 }
 
-function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }: AppPropsWithLayout) {
   const getLayout = Component.getLayout || ((page) => page);
+  
   return (
     <>
-      <ChakraProvider theme={theme}>
-        <ContextProviders>
-          <Head>
-            <title>Inside Sales Turbo</title>
-          </Head>
-          {getLayout(<Component {...pageProps} />)}
-        </ContextProviders>
-      </ChakraProvider>
+        <SessionProvider session={session}>
+            <ChakraProvider theme={theme}>
+              <ContextProviders>
+                {getLayout(<Component {...pageProps} />)}
+              </ContextProviders>
+            </ChakraProvider>
+          </SessionProvider>
       <Analytics />
     </>
   );
 }
-
-export default MyApp;
+export default trpc.withTRPC(MyApp);

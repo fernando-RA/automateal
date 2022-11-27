@@ -24,7 +24,7 @@ export const DesktopNavbar = () => {
           <InsideSalesTurboLogo />
         </Link>
         <Flex justify="space-between" flex="1">
-          <ButtonGroup variant="link" spacing="8">
+          <ButtonGroup marginTop="12px" variant="link" spacing="8">
             {menuItems.map((item) => (
               <Button key={item}>
                 <Link href={`#${item}`}>{item}</Link>
