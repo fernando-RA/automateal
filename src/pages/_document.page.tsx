@@ -18,6 +18,7 @@ export default function Document() {
           rel="stylesheet"
         />
         <link rel="icon" href="/favicon.ico" />
+        <title>Inside Sales Turbo</title>
       </Head>
       <body>
         <ColorModeScript initialColorMode={theme.config.initialColorMode} />
