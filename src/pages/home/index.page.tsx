@@ -1,3 +1,4 @@
+import { NextPageWithLayout } from '../../@types/page';
 import LandingPage from '../../components/layouts/landingPage/LandingPage';
 import DetailsSection from '../../components/sections/DetailsSection';
 import { FeatureSection } from '../../components/sections/FeatureSection';
@@ -5,7 +6,6 @@ import MainSection from '../../components/sections/MainSection/MainSection';
 import { OutroSection } from '../../components/sections/OutroSection';
 import { PricingSection } from '../../components/sections/PricingSection';
 import ValuePropositionSection from '../../components/sections/ValuePropositionSection/ValuePropositionSection';
-import { NextPageWithLayout } from '../../@types/page';
 
 const Home: NextPageWithLayout = () => {
   return (
@@ -21,7 +21,7 @@ const Home: NextPageWithLayout = () => {
           id="Why"
           title="Have all your agency operations in one place."
           subtitle="Tired of having to set up clients on multiple platforms for communication, billing, and project management (and the cost that comes with it)?"
-          description="Ditch Slack, Asana, Simple Invoices - AgenciFlow does all that for you."
+          description="Ditch Asana, Simple Invoices - Autoateal does all that for you."
           imgUrl="https://uploads-ssl.webflow.com/61461a5621e91a9346dd631e/617c3930e2b00230e5ac7bf2_agency-management-software-poster-00001.jpg"
           imgOrientation="right"
         ></DetailsSection>

@@ -1,5 +1,7 @@
+import { ErrorType } from '@/@types/register';
 import LandingPage from '@/components/layouts/landingPage/LandingPage';
 import { InsideSalesTurboLogo as Logo } from '@/components/navigation/Logo/Logo';
+import { validateEmail } from '@/utils/email';
 import {
   Box,
   Button,
@@ -13,35 +15,63 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 import { getProviders, signIn } from 'next-auth/react';
-import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { FaDiscord, FaFacebook, FaGoogle, FaLinkedinIn } from 'react-icons/fa';
 
 const Register = ({ providers }) => {
-  const [emailValue, setEmailValue] = useState('');
-  const [loadingEmailButton, setLoadingEmailButton] = useState(false);
+  const [emailValue, setEmailValue] = useState<string>('');
+  const [loadingEmailButton, setLoadingEmailButton] = useState<boolean>(false);
   const [emailLinkSentWithSuccess, setEmailLinkSentWithSuccess] =
-    useState(false);
-
+    useState<boolean>(false);
+  const [signinError, setHasSigninErrors] = useState<ErrorType>({
+    hasError: false,
+    errorMessage: '',
+  });
   const color = useColorModeValue('gray.800', 'gray.200');
   const bgColor = useColorModeValue('gray.100', 'gray.700');
-  const { error } = useRouter().query;
 
-  const handleEmailMagicalLink = async () => {
-    setLoadingEmailButton(true);
-    await signIn('email', {
-      email: emailValue,
-      redirect: false,
-      callbackUrl: '/dashboard',
-    })
-      .then((res) => {
-        setLoadingEmailButton(false);
-        setEmailLinkSentWithSuccess(true);
+  const handleEmailMagicalLink = async (): Promise<void> => {
+    if (validateEmail(emailValue)) {
+      setLoadingEmailButton(true);
+      await signIn('email', {
+        email: emailValue,
+        callbackUrl: '/dashboard',
+        redirect: false,
+      })
+        .then((res) => {
+          setLoadingEmailButton(false);
+          setEmailLinkSentWithSuccess(true);
+          setHasSigninErrors({
+            hasError: false,
+          });
+        })
+        .catch((err) => {
+          setHasSigninErrors({
+            hasError: true,
+            errorMessage: err,
+          });
+          console.error('err', err);
+        });
+    } else {
+      setEmailLinkSentWithSuccess(false);
+      setHasSigninErrors({
+        hasError: true,
+        errorMessage:
+          'Your email seems to be invalid. Please double check the field above',
+      });
+    }
+  };
+
+  const handleSignInFromOAuth = async (authProvider: string) => {
+    await signIn(authProvider)
+      .then((response) => {
+        console.log(response);
       })
       .catch((err) => {
-        console.error('err', err);
+        console.error(err);
       });
   };
+
   return (
     <Container
       maxW="xl"
@@ -49,7 +79,9 @@ const Register = ({ providers }) => {
       px={{ base: '0', sm: '8' }}
     >
       <Flex>
-        <Stack>{error && <SignInError error={error} />}</Stack>
+        <Stack>
+          {signinError && <SignInError error={signinError.errorMessage} />}
+        </Stack>
       </Flex>
       <Box
         py={{ base: '12', sm: '6' }}
@@ -79,15 +111,18 @@ const Register = ({ providers }) => {
                   onClick={handleEmailMagicalLink}
                   variant="outline"
                   isLoading={loadingEmailButton}
+                  disabled={emailValue === ''}
                 >
                   Send a magical link
                 </Button>
-                {emailLinkSentWithSuccess && !error ? (
+                {emailLinkSentWithSuccess && !signinError.hasError ? (
                   <div className="mt-4 flex bg-green-200">
                     Check your inbox for a magic link
                   </div>
                 ) : (
-                  <div></div>
+                  <div className="mt-4 flex bg-red-200">
+                    {signinError.errorMessage}
+                  </div>
                 )}
               </Stack>
               <HStack>
@@ -103,7 +138,7 @@ const Register = ({ providers }) => {
                   leftIcon={<FaGoogle />}
                   iconSpacing="3"
                   onClick={() => {
-                    signIn('google');
+                    handleSignInFromOAuth('google');
                   }}
                 >
                   Continue with Google
@@ -113,7 +148,7 @@ const Register = ({ providers }) => {
                   leftIcon={<FaFacebook />}
                   iconSpacing="3"
                   onClick={() => {
-                    signIn('facebook');
+                    handleSignInFromOAuth('facebook');
                   }}
                 >
                   Continue with Facebook
@@ -123,7 +158,7 @@ const Register = ({ providers }) => {
                   leftIcon={<FaLinkedinIn />}
                   iconSpacing="3"
                   onClick={() => {
-                    signIn('linkedin');
+                    handleSignInFromOAuth('linkedin');
                   }}
                 >
                   Continue with Linkedin
@@ -133,7 +168,7 @@ const Register = ({ providers }) => {
                   leftIcon={<FaDiscord />}
                   iconSpacing="3"
                   onClick={() => {
-                    signIn('discord');
+                    handleSignInFromOAuth('discord');
                   }}
                 >
                   Continue with Discord

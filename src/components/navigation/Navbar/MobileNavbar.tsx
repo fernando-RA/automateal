@@ -21,6 +21,7 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useRef } from 'react';
 import { FiMenu, FiSun, FiX } from 'react-icons/fi';
 import { InsideSalesTurboLogo } from '../Logo/Logo';
@@ -37,11 +38,13 @@ export const MobileNavbar = () => {
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const { toggleColorMode } = useColorMode();
   const MenuIcon = isOpen ? FiX : FiMenu;
-
+  const router = useRouter();
   return (
     <div>
       <Flex height="16" align="center" justify="space-between" px="5">
-        <InsideSalesTurboLogo />
+        <Link href="/">
+          <InsideSalesTurboLogo />
+        </Link>
         <HStack divider={<StackDivider height="6" alignSelf="unset" />}>
           <IconButton
             ref={menuButtonRef}
@@ -113,11 +116,15 @@ export const MobileNavbar = () => {
                 variant="outline"
                 color="accent"
                 fontWeight="semibold"
+                onClick={() => {
+                  if (!router.pathname.includes('register'))
+                    router.push('register');
+                }}
               >
                 Sign in
               </Button>
               <Button flex="1" colorScheme="teal" fontWeight="semibold">
-              Start Free Trial
+                Start Free Trial
               </Button>
             </HStack>
           </DrawerBody>

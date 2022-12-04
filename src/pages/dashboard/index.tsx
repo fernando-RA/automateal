@@ -1,16 +1,18 @@
-import { useState } from 'react';
-import { NextPageWithLayout } from '../../@types/page';
-import LandingPage from '../../components/layouts/landingPage/LandingPage';
+import { NextPageWithLayout } from '@/@types/page';
+import { DashboardLayout } from '@/components/layouts/dashboard';
+import { useSession } from 'next-auth/react';
 
-const Subscribe: NextPageWithLayout = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-
-  return <div></div>;
+const Dashboard: NextPageWithLayout = () => {
+  const { data: sessionData } = useSession();
+  return sessionData ? (
+    <div>Hello world is authenticated {sessionData.user.email} </div>
+  ) : (
+    <div>is not authed</div>
+  );
 };
 
-export default Subscribe;
+export default Dashboard;
 
-Subscribe.getLayout = (page) => {
-  return <LandingPage>{page}</LandingPage>;
+Dashboard.getLayout = (page) => {
+  return <DashboardLayout>{page}</DashboardLayout>;
 };

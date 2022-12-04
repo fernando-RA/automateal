@@ -5,7 +5,7 @@ import {
   Heading,
   Stack,
   Text,
-  useColorModeValue,
+  useColorModeValue
 } from '@chakra-ui/react';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
@@ -89,7 +89,6 @@ export default MainSection;
 
 const AuthShowcase: React.FC = () => {
   const { data: sessionData } = useSession();
-
   const { data: secretMessage } = trpc.auth.getSecretMessage.useQuery(
     undefined, // no input
     { enabled: sessionData?.user !== undefined }
@@ -98,10 +97,10 @@ const AuthShowcase: React.FC = () => {
   return (
     <div className="flex flex-col items-center justify-center gap-2">
       <p className="text-center text-2xl text-black">
-        {sessionData && <span>Logged in as {sessionData.user?.name}</span>}
+        {sessionData && <span>Logged in as {sessionData.user?.email}</span>}
         {secretMessage && <span> - {secretMessage}</span>}
       </p>
-      <Link href="register">
+      <Link href="/register">
         <button className="rounded-full bg-blue-500 px-10 py-3 font-semibold text-white no-underline transition hover:bg-white/20">
           {sessionData ? 'Sign out' : 'Start Free Trial'}
         </button>

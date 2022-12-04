@@ -42,7 +42,7 @@ export const DesktopNavbar = () => {
             />
             {sessionData ? (
               <div>
-                <span>Logged in as {sessionData.user?.name}</span>
+                <span>Logged in as {sessionData.user?.email}</span>
                 <button
                   onClick={() => {
                     signOut();

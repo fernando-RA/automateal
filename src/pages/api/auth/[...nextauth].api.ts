@@ -12,11 +12,7 @@ import { env } from '../../../env/server.mjs';
 import { prisma } from '../../../server/db/client';
 
 export const authOptions: NextAuthOptions = {
-  pages: {
-    signIn: '/register',
-    error: '/register',
-    signOut: '/',
-  },
+  session: { strategy: 'jwt' },
   callbacks: {
     session({ session, user }) {
       if (session.user) {
@@ -24,8 +20,13 @@ export const authOptions: NextAuthOptions = {
       }
       return session;
     },
+    async redirect({ url, baseUrl }) {
+      return baseUrl;
+    },
   },
-  // Configure one or more authentication providers
+  jwt: {
+    secret: env.NEXTAUTH_SECRET,
+  },
   adapter: PrismaAdapter(prisma),
   providers: [
     GoogleProvider({
@@ -44,11 +45,6 @@ export const authOptions: NextAuthOptions = {
       clientId: process.env.LINKEDIN_CLIENT_ID,
       clientSecret: process.env.LINKEDIN_CLIENT_SECRET,
     }),
-    // TODO https://developer.okta.com/blog/2019/06/04/what-the-heck-is-sign-in-with-apple
-    // AppleProvider({
-    //   clientId: process.env.APPLE_ID,
-    //   clientSecret: process.env.APPLE_SECRET,
-    // }),
     EmailProvider({
       server: process.env.EMAIL_SERVER,
       from: process.env.EMAIL_FROM,
